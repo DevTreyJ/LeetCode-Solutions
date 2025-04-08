@@ -1,0 +1,20 @@
+class Solution(object):
+    def kidsWithCandies(self, candies, extraCandies):
+        """
+        :type candies: List[int]
+        :type extraCandies: int
+        :rtype: List[bool]
+        """
+        totalCandies = 0
+        booleanArray = []
+        for i in range(len(candies)):
+            totalCandies = candies[i] + extraCandies
+            for j in range(len(candies)):
+                if totalCandies < candies[j] and len(booleanArray) == i:
+                    booleanArray.append(False)
+            if len(booleanArray) == i:
+                booleanArray.append(True)
+                    
+        return booleanArray
+                
+        
