@@ -1,0 +1,33 @@
+class Solution(object):
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+
+        # check and see the first tallest line 
+        # find second tallest line 
+        # see if lines after it create a larger area
+
+        left = 0
+        right = len(height)-1
+        waterValues = []
+        if len(height) == 2:
+            if height[right] > height[left]:
+                return height[left] * (left + 1)
+            else:
+                return height[right] * right
+        for i in range(len(height)):
+            if left != right:
+                if height[left] < height[right]:
+
+                    waterValues.append(height[left]*(right-left))
+                    left = left + 1 
+                elif height[left] == height[right]:
+                    waterValues.append(height[left] * (right-left))
+                    right = right - 1 
+                else: 
+                    waterValues.append(height[right]*(right-left))
+                    right = right - 1 
+        print(waterValues)
+        return max(waterValues)
