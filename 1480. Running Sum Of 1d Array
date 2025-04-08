@@ -1,0 +1,14 @@
+class Solution(object):
+    def runningSum(self, nums):
+        stack = []
+        for i in range(len(nums)):
+            if len(stack) == 0:
+                stack.append(nums[i])
+            elif len(stack) == 1:
+                stack.append(nums[i] + nums[i-1])
+            else:
+                Curr = nums[i]
+                Prev = stack[i-1]
+                stack.append(Curr+Prev)
+        return stack
+        
