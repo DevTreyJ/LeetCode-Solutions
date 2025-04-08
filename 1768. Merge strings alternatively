@@ -1,0 +1,50 @@
+class Solution(object):
+    def mergeAlternately(self, word1, word2):
+        """
+        :type word1: str
+        :type word2: str
+        :rtype: str
+        """
+        stack = []
+        endingLetter = []
+        word1pointer = len(word1)
+        word2pointer = len(word2)
+        word2Difference = len(word2) - len(word1)
+        word1Difference = len(word1) - len(word2)
+        
+
+        if word1pointer == word2pointer:
+            for i in range(len(word2)):
+                stack.append(word1[i])
+                stack.append(word2[i])
+        elif word2pointer > word1pointer:
+            for i in range(word1pointer):
+                stack.append(word1[i])
+                stack.append(word2[i])
+            for i in range(word2Difference):
+                stack.append(word2[i-word2Difference])
+        elif word2pointer < word1pointer:
+            for i in range(word2pointer):
+                stack.append(word1[i])
+                stack.append(word2[i])
+            for i in range(word1Difference):
+                stack.append(word1[i-word1Difference])
+
+        
+
+
+                
+
+
+
+
+        
+
+                    
+
+        my_string = "".join(stack)
+        return my_string
+
+
+
+
