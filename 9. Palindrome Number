@@ -1,0 +1,21 @@
+class Solution(object):
+    def isPalindrome(self, x):
+        
+        
+        x = str(x)
+        j = len(x)-1
+        tempVar = 0
+        for i in range(len(x)/2):
+            if x[i] != x[j]:
+                tempVar = 1
+            j = j - 1
+
+        if tempVar > 0:
+            return False
+        else:
+            return True
+
+        
+
+        
+        
