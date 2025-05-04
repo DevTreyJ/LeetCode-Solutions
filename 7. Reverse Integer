@@ -1,0 +1,32 @@
+class Solution(object):
+    def reverse(self, x):
+
+        isNegative = 0
+        if (x < 0 ):
+            isNegative = 1
+            x = x * -1
+        numToString = str(x)
+        reversedInt = []
+        j = len(numToString) - 1
+        for i in range(j, -1, -1):
+            reversedInt.append(numToString[i])
+        reversedInt = ''.join(reversedInt)
+        reversedInt = int(reversedInt)
+
+        if (isNegative == 1):
+            reversedInt = reversedInt * -1
+         
+        if (reversedInt < -2**31 or reversedInt > 2**31 - 1):
+            return 0
+
+
+        return reversedInt
+
+
+
+            
+        
+
+
+            
+            
